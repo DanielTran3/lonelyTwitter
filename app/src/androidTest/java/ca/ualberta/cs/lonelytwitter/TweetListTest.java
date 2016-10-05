@@ -5,15 +5,31 @@ import android.test.ActivityInstrumentationTestCase2;
 import java.util.Date;
 
 /**
- * Created by Daniel on 2016-09-27.
+ * Test for The TweetList class. This test will test
+ * <ul>
+ *     <li>Adding tweets to tweetList</li>
+ *     <li>If a tweetList has a tweet</li>
+ *     <li>Grabbing a tweet from the tweetList</li>
+ *     <li>Deleting a tweet from tweetList</li>
+ *     <li>Getting the tweetList containing all of the tweets</li>
+ *     <li>Getting the number of tweets in the tweetList</li>
+ * </ul>
  */
 public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitterActivity>
 {
+    /**
+     * Super the LonelyTwitterActivity class
+     * @see LonelyTwitterActivity
+     */
     public TweetListTest()
     {
         super(LonelyTwitterActivity.class);
     }
 
+    /**
+     * Test to add in a tweet to the tweet list. If there is a failure.
+     * @throws IllegalArgumentException
+     */
     public void testAddTweet()
     {
         TweetList list = new TweetList();
@@ -33,6 +49,9 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
 
     }
 
+    /**
+     * Check if tweetList has a tweet in it. Check before and after the tweet has been added.
+     */
     public void testHasTweet()
     {
         TweetList list = new TweetList();
@@ -44,6 +63,10 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         assertTrue(list.hasTweet(tweet));
     }
 
+    /**
+     * Tests getting a tweet from tweetList to see if the tweet that was returned is ordered
+     * correctly
+     */
     public void testGetTweet()
     {
         TweetList list = new TweetList();
@@ -59,6 +82,9 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
 
     }
 
+    /**
+     * Delete a tweet from tweet list and see if the tweet is still present in the list.
+     */
     public void testDeleteTweet()
     {
         TweetList list = new TweetList();
@@ -71,6 +97,9 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         assertFalse(list.hasTweet(a));
     }
 
+    /**
+     * Test to return the TweetList and wee if the Tweets returned contain the correct data.
+     */
     public void testGetTweets()
     {
         TweetList list = new TweetList();
@@ -91,6 +120,9 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         assertTrue(tweeta.before(tweetb));
     }
 
+    /**
+     * Test to see if the number of tweets in the TweetList is correct.
+     */
     public void testGetCount()
     {
         TweetList list = new TweetList();
