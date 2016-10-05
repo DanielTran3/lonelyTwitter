@@ -3,7 +3,12 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * Created by watts1 on 9/13/16.
+ * An interface that is implemented by NormalTweet and defines the functions for getMessage and
+ * getDate
+ * @author Daniel
+ * @see NormalTweet
+ * @see #getMessage()
+ * @see #getDate()
  */
 public interface Tweetable {
 

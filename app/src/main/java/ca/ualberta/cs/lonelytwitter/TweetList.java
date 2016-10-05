@@ -8,7 +8,13 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Created by Daniel on 2016-09-27.
+ * TweetList contains a list of Tweets. It is the datatype that is involved with persistent data.
+ * It holds ImportantTweets and NormalTweets.
+ * @author Daniel
+ * @see Tweet
+ * @see NormalTweet
+ * @see ImportantTweet
+ * @see LonelyTwitterActivity
  */
 public class TweetList
 {

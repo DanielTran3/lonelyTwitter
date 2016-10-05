@@ -3,7 +3,10 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 /**
- * The base class that defines a Tweet.
+ * The base class that defines a Tweet. There are setters and getters for the data of Tweets
+ * @author Daniel
+ * @see NormalTweet
+ * @see ImportantTweet
  */
 public abstract class Tweet {
     private String message;
