@@ -18,10 +18,13 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,6 +64,9 @@ import com.google.gson.reflect.TypeToken;
  */
 public class LonelyTwitterActivity extends Activity {
 
+    public final static String EXTRA_MESSAGE = "ca.ualberta.cs.lonelytwitter,MESSAGE";
+	private Activity activity = this;
+
 	/**
 	 * This is the file name that is being saved / loaded and contains all the tweets.
 	 * @see #loadFromFile()
@@ -97,6 +103,10 @@ public class LonelyTwitterActivity extends Activity {
 	 * @see #onCreate(Bundle)
 	 */
 	private ArrayAdapter<Tweet> adapter;
+
+	public ListView getOldTweetsList() {
+		return oldTweetsList;
+	}
 
 	/** Called when the activity is first created.*/
 	/**
@@ -139,7 +149,20 @@ public class LonelyTwitterActivity extends Activity {
 				saveInFile();
 			}
 		});
+		oldTweetsList.setOnItemClickListener(new
+			 AdapterView.OnItemClickListener() {
+				 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+					 Intent intent = new Intent(activity, EditTweetActivity.class);
+//                     ListView list = (ListView) findViewById(R.id.oldTweetsList);
+//					 EditText editText = (EditText) list.getChildAt(0);
+//                     intent.putExtra(EXTRA_MESSAGE,editText.getText().toString());
+                     intent.putExtra(EXTRA_MESSAGE, tweetList.get(0).getMessage());
+                     startActivity(intent);
+				 }
+			 });
 	}
+
+
 
 	/**
 	 * When onStart() happens, data is loaded from the saved file (file.sav), and the array adapter
