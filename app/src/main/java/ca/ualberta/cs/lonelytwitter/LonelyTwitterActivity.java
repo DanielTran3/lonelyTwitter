@@ -153,10 +153,7 @@ public class LonelyTwitterActivity extends Activity {
 			 AdapterView.OnItemClickListener() {
 				 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 					 Intent intent = new Intent(activity, EditTweetActivity.class);
-//                     ListView list = (ListView) findViewById(R.id.oldTweetsList);
-//					 EditText editText = (EditText) list.getChildAt(0);
-//                     intent.putExtra(EXTRA_MESSAGE,editText.getText().toString());
-                     intent.putExtra(EXTRA_MESSAGE, tweetList.get(0).getMessage());
+                     intent.putExtra(EXTRA_MESSAGE, tweetList.get(position).getMessage());
                      startActivity(intent);
 				 }
 			 });
