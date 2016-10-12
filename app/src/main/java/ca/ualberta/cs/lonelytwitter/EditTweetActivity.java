@@ -14,8 +14,9 @@ public class EditTweetActivity extends Activity {
         setContentView(R.layout.activity_edit_tweet);
 
         Intent intent = getIntent();
-        TextView inputText = (TextView) findViewById(R.id.new_activity_text);
-        inputText.setText(intent.getStringExtra(LonelyTwitterActivity.EXTRA_MESSAGE));
+        Tweet tweet = (Tweet) intent.getSerializableExtra(LonelyTwitterActivity.EXTRA_MESSAGE);
+        EditText inputText = (EditText) findViewById(R.id.new_activity_text);
+        inputText.setText(tweet.toString());
 
     }
 }

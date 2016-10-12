@@ -16,6 +16,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -153,7 +154,10 @@ public class LonelyTwitterActivity extends Activity {
 			 AdapterView.OnItemClickListener() {
 				 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 					 Intent intent = new Intent(activity, EditTweetActivity.class);
-                     intent.putExtra(EXTRA_MESSAGE, tweetList.get(position).getMessage());
+                     Tweet tweet = tweetList.get(position);
+                     Bundle bundle = new Bundle();
+                     bundle.putSerializable(EXTRA_MESSAGE, tweet);
+                     intent.putExtras(bundle);
                      startActivity(intent);
 				 }
 			 });
